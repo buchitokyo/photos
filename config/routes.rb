@@ -4,4 +4,5 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  root to: 'pictures#index'
 end
