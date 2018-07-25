@@ -1,0 +1,6 @@
+<h1>Editing Picture</h1>
+<!-- picture: @pictureでmodalかけれる。この時_formでエラーのとこがインスタンス化されてない -->
+<%= render 'form' %>
+<!-- 写真を編集する際に、idをインスタンスで渡す -->
+<%= link_to 'Show', picture_path(@picture), class: 'btn btn-info' %> |
+<%= link_to 'Back', pictures_path, class: 'btn btn-info' %>
