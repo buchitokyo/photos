@@ -36,7 +36,7 @@ class PicturesController < ApplicationController
     #カラムをpicturesに作成する。また、その際,外部キーを使用する際、picturessは belongs_to :user　になる
       if @picture.save
 
-        ContactMailer.contact_mail(@picture).deliver
+        #ContactMailer.contact_mail(@picture).deliver
          redirect_to pictures_path, notice: 'Picture was successfully created.'
       else
         render 'new'
