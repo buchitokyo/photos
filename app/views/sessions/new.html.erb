@@ -1,0 +1,21 @@
+<div class = "container">
+  <h1>LogIn!</h1>
+    <div class = "sign">
+      <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email,class: "form-control", placeholder: "Email" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+          <span>Remember me</span>
+        <% end %>
+
+      <%= f.submit "LogIn", class: "btn btn-info" %>
+      <% end %>
+      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </div>
+</div>

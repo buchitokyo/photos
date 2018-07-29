@@ -1,0 +1,16 @@
+<div class = "container">
+  <h1><%= @user.try(:name) %>のアカウントページ</h1>
+  <P>メールアドレス:<%= @user.try(:email) %></p>
+    <p>
+      <%= image_tag @user.icon %>
+    </p>
+    <br>
+    <h2>お気に入り</h2>
+    <% @favorite_pictures.each do |favorite_picture| %>
+    <p><%=  favorite_picture.user.name %></p>
+      <ul class = 'row'>
+        <li class = "col-sm-6 col-md-6">image:<%= image_tag(favorite_picture.image) %></li>
+        <li class = "col-sm-6 col-md-6">content:<%= favorite_picture.content %></li>
+      </ul>
+    <% end %>
+</div>

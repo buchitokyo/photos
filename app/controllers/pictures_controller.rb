@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new,:index,:edit,:show,:destroy]
 
   # GET /pictures
   # GET /pictures.json
@@ -10,6 +11,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   # GET /pictures/new
@@ -29,8 +31,12 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
-
+    @picture.user_id = current_user.id #現在ログインしているuserのidをblog.user_idに代入し、blogのuser_idカラムに挿入
+    #user_idはすでに、テーブルが関連づけられているだけでは、使用できない。アソシエーションをかけ、t.referencesを使用して、外部キーの
+    #カラムをpicturesに作成する。また、その際,外部キーを使用する際、picturessは belongs_to :user　になる
       if @picture.save
+
+        ContactMailer.contact_mail(@picture).deliver
          redirect_to pictures_path, notice: 'Picture was successfully created.'
       else
         render 'new'
@@ -41,7 +47,7 @@ class PicturesController < ApplicationController
   # PATCH/PUT /pictures/1.json
   def update
       if @picture.update(picture_params)
-        redirect_to pistures_path, notice: 'Picture was successfully updated.'
+        redirect_to pictures_path, notice: 'Picture was successfully updated.'
       else
         render 'edit'
       end
@@ -56,6 +62,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
     #禁止だっら、trueを返し、newにrender
     render :new if @picture.invalid?
   end
@@ -70,4 +77,10 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:content, :image, :image_cache)
     end
+    def logged_in_user
+      unless current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
+        render new_session_path
+      end
+    end
+
 end

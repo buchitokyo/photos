@@ -9,6 +9,36 @@
   </head>
 
   <body>
+   <div id ="header">
+    <header>
+    <ul>
+      <li><%=link_to "Top", root_path %></li>
+      <li><%=link_to "Photo Upload", new_picture_path %></li>
+      <li><%=link_to "お問い合わせ", root_path %></li>
+      <li><%=link_to "一覧", pictures_path %></li>
+
+      <% if logged_in? %>
+        <li><%=link_to "プロフィール", user_path(current_user.id) %></li>
+        <li class ="log"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+      <% else %>
+        <li class ="log"><%= link_to "Sign up", new_user_path %></li>
+        <li class ="log"><%= link_to "Login", new_session_path %></li>
+      <% end %>
+
+    </ul>
+  </header>
+</div>
+<!--<% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>-->
+
     <%= yield %>
+
+  <div id="pagetop" style="display: block;"><a href="#top">Top</a></div>
+  
+<footer>
+  <div id= "footer">Copyright © BUCHI, Inc. All rights reserved. </div>
+</footer>
   </body>
+
 </html>

@@ -1,0 +1,37 @@
+<div class = "container">
+  <h1>SignUp!</h1>
+
+  <% if @user.errors.any? %>
+<div id = "error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error" ) %> prohibited this @user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class = "sign">
+  <%= form_with( model: @user, local: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "User Name" %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email,class: "form-control", placeholder: "Email" %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Comfirmation" %>
+
+    <%= f.label :profile %>
+    <%= f.file_field :icon, class: 'filestyle', "data-buttonText": "ファイル選択",id: :user_icon %>
+
+    <%= f.submit "SignUp", class: 'btn btn-info' %>
+  <% end %>
+
+  <p class="text-muted">© 2017-2018</p>
+</div>
+</div>

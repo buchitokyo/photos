@@ -4,6 +4,9 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+#has_secure_passwordを使うため
+gem 'bcrypt', '3.1.11'
 # photos update
 gem 'carrierwave'
 gem 'mini_magick'
@@ -43,6 +46,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :development do
+  gem 'letter_opener_web'
 end
 
 group :development do

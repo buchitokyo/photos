@@ -1,0 +1,61 @@
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.sign {
+    text-align: center;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-control {
+  width: 300px;
+  height:45px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.text-muted {
+    color: #6c757d;
+}
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+/*以下記入*/
+label {
+  display: inline;
+}
+.checkbox {
+  margin: 0;
+}
+ul {
+  margin: 0 auto;
+  list-style: none;
+}
+.container {
+  height: 100%;
+  height: auto !important;
+  min-height: 100%;
+  position: relative;
+}
+
+
+#footer {
+    margin-top: 3rem;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    bottom: 0;
+    position: absolute;
+    width : 100%;
+}

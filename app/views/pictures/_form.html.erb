@@ -1,3 +1,4 @@
+<div class="container">
 <!--modulehelperで書くことでhtmlが全般に適用される　そしてurlも分岐　-->
 <%= form_with(model: @picture, local: true, url: choose_new_or_edit) do |form| %>
   <% if @picture.errors.any? %>
@@ -14,18 +15,18 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :picture_content, size: "45x10"%>
+    <%= form.text_area :content, id: :picture_content, size: "31x3"%>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
+    
+    <%= form.label :image,class: 'filestyle', "data-buttonText": "ファイル選択" %>
     <!-- 確認画面から新規作成画面に戻った時に、 -->
     <!-- アップロードした画像を表示させるための記述 -->
     <%= image_tag(@picture.image.url) if @picture.image.url %>
     <%= form.file_field :image, id: :picture_image %>
-  </div>
-
-  <div class="actions">
     <%= form.submit "Send", class: 'btn btn-info' %>
   </div>
+
 <% end %>
+</div>

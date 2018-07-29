@@ -1,3 +1,25 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.function {
+  margin-bottom: 100px;
+}
+.container {
+  height: 100%;
+  height: auto !important;
+  min-height: 100%;
+  position: relative;
+}
+
+
+#footer {
+    margin-top: 3rem;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    bottom: 0;
+    position: absolute;
+    width : 100%;
+}
