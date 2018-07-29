@@ -14,13 +14,13 @@
   </thead>
 
   <tbody>
-    <% @pictures.each do |picture| %>
+    <% @pictures.each do |@picture| %>
       <tr>
         <!-- 時間 -->
-          <td><%= picture.created_at %></td>
-          <td><%= picture.content %></td>
+          <td><%= @picture.created_at %></td>
+          <td><%= @picture.content %></td>
           <!-- 写真を一覧で見せるために image_tagを使用 -->
-          <td><%= image_tag picture.image %></td>
+          <td><%= image_tag @picture.image %></td>
           <td><%= link_to 'Show', picture_path(picture.id), class: 'btn btn-info' %></td>
           <td><%= link_to 'Edit', edit_picture_path(picture), class: 'btn btn-info' %></td>
           <td><%= link_to 'Delete', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
