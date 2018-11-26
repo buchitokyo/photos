@@ -1,0 +1,4 @@
+//{ comments: @comment.blog.comments, blog: @comment.blog }では、
+//@comment.blog.commentsのインスタンスの情報をcommentsという名前のローカル変数に入れ、_index.html.erbに渡しています。
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.picture.comments, picture: @comment.picture }) %>")
+$("textarea").val('')

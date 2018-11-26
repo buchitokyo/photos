@@ -9,6 +9,7 @@
   </head>
 
   <body>
+  <div id ="container">
    <div id ="header">
     <header>
     <ul>
@@ -18,7 +19,7 @@
       <li><%=link_to "一覧", pictures_path %></li>
 
       <% if logged_in? %>
-        <li><%=link_to "プロフィール", user_path(current_user.id) %></li>
+        <li class ="log"><%=link_to "プロフィール", user_path(current_user.id) %></li>
         <li class ="log"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
       <% else %>
         <li class ="log"><%= link_to "Sign up", new_user_path %></li>
@@ -34,11 +35,13 @@
 
     <%= yield %>
 
-  <div id="pagetop" style="display: block;"><a href="#top">Top</a></div>
-  
+
 <footer>
   <div id= "footer">Copyright © BUCHI, Inc. All rights reserved. </div>
 </footer>
+
+<div id="pagetop" style="display: block;"><a href="#top">Top</a></div>
+</div>
   </body>
 
 </html>

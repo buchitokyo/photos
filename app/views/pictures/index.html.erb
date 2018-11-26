@@ -20,7 +20,7 @@
         <!--投稿者の名前-->
           <td><%=  picture.user.name %></td>
         <!-- 時間 -->
-          <td><%= picture.created_at %></td>
+          <td>Posted <%= time_ago_in_words(picture.created_at) %>ago</td>
           <td><%= picture.content %></td>
           <!-- 写真を一覧で見せるために image_tagを使用 -->
           <td><%= image_tag (picture.image) %></td>

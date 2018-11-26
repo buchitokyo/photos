@@ -12,6 +12,19 @@
       </p>
     </div>
 
+
+<!-- https://qiita.com/shizuma/items/1c655dadd2e04b3990a8 -->
+    <div id="comments_area">
+ <!-- 投稿されたコメント一覧をブログの詳細ページに表示するための部分テンプレートのrender partialを記述
+ locals: { (ローカル変数名): (渡す値) } -->
+   <%= render partial: 'comments/index', locals: { comments: @comments, picture: @picture } %>
+ </div>
+
+ <!-- コメント入力欄をブログの詳細ページに表示するための部分テンプレートのrender partialを記述
+ locals: { (ローカル変数名): (渡す値) } -->
+ <%= render partial: 'comments/form', locals: { comment: @comment, picture: @picture } %>
+
+
     <% unless @picture.user_id == current_user.id %>
       <% if @favorite.present? %>
         <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>

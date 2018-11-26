@@ -12,6 +12,8 @@ class PicturesController < ApplicationController
   # GET /pictures/1.json
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
+    @comments = @picture.comments
+    @comment = @picture.comments.build
   end
 
   # GET /pictures/new
@@ -25,6 +27,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    @picture.find(params[:id])
   end
 
   # POST /pictures
@@ -57,7 +60,7 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1.json
   def destroy
     @picture.destroy
-    redirect_to pictures_path notice: 'Picture was successfully destroyed.'
+    redirect_to pictures_path, notice: 'Picture was successfully destroyed.'
   end
 
   def confirm
