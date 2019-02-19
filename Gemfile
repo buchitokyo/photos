@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #has_secure_passwordを使うため
+gem 'bootstrap', '4.1.2'
 gem 'bcrypt', '3.1.11'
 # photos update
 gem 'carrierwave'
